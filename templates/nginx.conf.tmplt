@@ -9,6 +9,8 @@ server {
     ssl_ciphers  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
     ssl_prefer_server_ciphers   on;
 
+    # вообще в любом случае отдаём index.html, в итоге это решает проблему 301 на GET /.
+    try_files $uri /index.html;
     root   $root;				# папка где лежит сама HTML'ка с заглушкой
     error_page 404 = /index.html;		# на все GET-запросы вместо 404 отдаём страницу-заглушку с кодом 200.
     index index.html;				# если GET-запроса нет или /, отдаём index.html
