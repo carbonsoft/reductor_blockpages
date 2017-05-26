@@ -103,3 +103,15 @@
     cp /etc/sysconfig/iptables{,.bk}
     curl https://raw.githubusercontent.com/carbonsoft/reductor_blockpages/master/templates/iptables > /etc/sysconfig/iptables
     service iptables restart
+
+## Обновление
+
+Только вручную.
+
+```
+ssh root@10.50.140.73
+cd /root/reductor_blockpages
+git pull origin master
+make rkn_config
+service nginx reload
+```
