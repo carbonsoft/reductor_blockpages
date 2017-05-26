@@ -16,6 +16,6 @@ for config in "${@:-rkn}"; do
 		tmplt=templates/nginx.conf.tmplt \
 		root=$mainroot/$config \
 		ip=${!config} \
-		uri=\\$uri
+		uri=\\\$uri
 done
 service nginx configtest
